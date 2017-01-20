@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<app-component xmlns="http://schemas.haulmont.com/cuba/app-component.xsd"
+               dependsOn="com.haulmont.cuba">
+    <module blocks="*"
+            name="global">
+        <artifact appJar="true"
+                  name="translation_DE-global"/>
+        <property name="cuba.persistenceConfig"
+                  value="+com/haulmont/translation/german/persistence.xml"/>
+        <property name="cuba.metadataConfig"
+                  value="+com/haulmont/translation/german/metadata.xml"/>
+        <property name="cuba.viewsConfig"
+                  value="+com/haulmont/translation/german/views.xml"/>
+    </module>
+    <module blocks="core"
+            dependsOn="global"
+            name="core">
+        <artifact appJar="true"
+                  name="translation_DE-core"/>
+        <property name="cuba.springContextConfig"
+                  value="+com/haulmont/translation/german/spring.xml"/>
+        <property name="cuba.mainMessagePack"
+                  value="+com.haulmont.translation.german.core"/>
+    </module>
+    <module blocks="web,desktop"
+            dependsOn="global"
+            name="gui">
+        <artifact appJar="true"
+                  name="translation_DE-gui"/>
+    </module>
+    <module blocks="web"
+            dependsOn="gui"
+            name="web">
+        <artifact appJar="true"
+                  name="translation_DE-web"/>
+        <artifact classifier="web"
+                  configuration="webcontent"
+                  ext="zip"
+                  name="translation_DE-web"/>
+        <property name="cuba.springContextConfig"
+                  value="+com/haulmont/translation/german/web-spring.xml"/>
+        <property name="cuba.dispatcherSpringContextConfig"
+                  value="+com/haulmont/translation/german/web-dispatcher-spring.xml"/>
+        <property name="cuba.windowConfig"
+                  value="+com/haulmont/translation/german/web-screens.xml"/>
+        <property name="cuba.menuConfig"
+                  value="+com/haulmont/translation/german/web-menu.xml"/>
+        <property name="cuba.permissionConfig"
+                  value="+com/haulmont/translation/german/web-permissions.xml"/>
+        <property name="cuba.mainMessagePack"
+                  value="+com.haulmont.translation.german.gui com.haulmont.translation.german.web"/>
+    </module>
+</app-component>

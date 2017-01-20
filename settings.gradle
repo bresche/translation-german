@@ -1,0 +1,6 @@
+rootProject.name = 'translation-german'
+include(':translation_DE-global', ':translation_DE-core', ':translation_DE-gui', ':translation_DE-web')
+project(':translation_DE-global').projectDir = new File(settingsDir, 'modules/global')
+project(':translation_DE-core').projectDir = new File(settingsDir, 'modules/core')
+project(':translation_DE-gui').projectDir = new File(settingsDir, 'modules/gui')
+project(':translation_DE-web').projectDir = new File(settingsDir, 'modules/web')
