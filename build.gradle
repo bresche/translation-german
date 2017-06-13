@@ -44,7 +44,7 @@ apply(plugin: 'cuba')
 cuba {
     artifact {
         group = 'com.haulmont.translation.german'
-        version = '6.3.5'
+        version = '6.3.5.1'
         isSnapshot = false
     }
     tomcat {
